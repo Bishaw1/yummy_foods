@@ -15,10 +15,16 @@ if (empty($name)) {
     $errors['name_error']="Please Enter Your Name";
 }
 
+//*if email already exits
+$query = "SELECT * from users where email='$email'";
+$response = mysqli_query($conn,$query);
+
 if (empty($email)) {
     $errors['email_error']="Please Enter Your Email Address";
 }elseif(!filter_var($email,FILTER_VALIDATE_EMAIL)){
     $errors['email_error']="Please Enter Your Email Address";
+}elseif($response -> num_rows > 0 ){
+    $errors['email_error']="This Email already exits,Please Give Another Email Address";
 }
 
 

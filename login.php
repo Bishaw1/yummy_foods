@@ -28,14 +28,14 @@ session_start()
 <form action="./controller/login_User.php" method="POST" class="login-form">
 <div class="form-group mt-3">
 <input name="name" type="text" class="form-control rounded-left" placeholder="Email" >   
-
-    <?php 
-    if(isset($_SESSION['errors']['name_error'])){
-        ?>
-        <span style='color:red'><?=$_SESSION['errors']['name_error']?></span>
-        <?php
-    }
+<?php
+if (isset($_SESSION['errors']['name_error'])) {
     ?>
+    <span style=color:red><?=$_SESSION['errors']['name_error']?></span>
+    <?php
+} 
+
+?>
 <!-- <label class="form-control-placeholder" for="username">Username</label> -->
 </div>
 <div class="form-group mt-3">
