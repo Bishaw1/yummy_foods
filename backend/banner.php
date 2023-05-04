@@ -8,7 +8,7 @@ include './inc/header_index.php'
         </div>
 
         <div class="card-body">
-            <form enctype="multipart/form-data" action="../controller/bannerStore.php" method="POST">
+            <form enctype="multipart/form-data" action="#" method="POST">
 
                 <div class="row">
                     <div class="col-lg-4">

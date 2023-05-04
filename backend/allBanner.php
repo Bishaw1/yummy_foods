@@ -48,8 +48,8 @@ $banners = mysqli_fetch_all($response,1);
                 "Activate"  ?></a>
 
 
-                <a href="#" class="btn btn-sm btn-primary">Edit</a>
-                <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                <a href="./editBanner.php?id=<?=$banner["id"]?>" class="btn btn-sm btn-primary">Edit</a>
+                <a href="../controller/bannerDelete.php?id=<?=$banner['id'] ?>" class="btn btn-sm btn-danger deleteBtn">Delete</a>
             </td>
         </tr>
         <?php
@@ -59,6 +59,35 @@ $banners = mysqli_fetch_all($response,1);
 
     </table>
 </main>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<script> 
+$(function(){
+    //*jquery
+    let deleteBtn= $('.deleteBtn')
+    deleteBtn.click(function(event){
+        event.preventDefault()
+        Swal.fire({
+  title: 'Are you sure?',
+  text: "You won't be able to revert this!",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Yes, delete it!'
+}).then((result) => {
+  if (result.isConfirmed) {
+    window.location.href = $(this).attr.('href')
+  }
+})
+    
+    })
+
+
+})
+</script>
 
 <?php
 include './inc/footer_index.php';
